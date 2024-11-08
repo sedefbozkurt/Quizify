@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         updateUI()
     }
     
-    func updateUI() {
+    @objc func updateUI() {
         questionLabel.text = quizBrain.getQuestionText()
         
         let choices = quizBrain.getChoices()
@@ -35,6 +35,24 @@ class ViewController: UIViewController {
         choice4.setTitle(choices[3], for: .normal)
         
         scoreLabel.text = "Skor: \(quizBrain.score)"
+    }
+    
+    @IBAction func answerButtonPressed(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle!
+        
+        let isCorrect = quizBrain.checkAnswer(userAnswer)
+        
+        if isCorrect {
+            sender.backgroundColor = .green
+        } else {
+            sender.backgroundColor = .red
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+            self.quizBrain.nextQuestion()
+            self.updateUI()
+            sender.backgroundColor = .clear
+        }
     }
 }
 
