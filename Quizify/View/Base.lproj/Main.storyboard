@@ -94,6 +94,15 @@
                             <constraint firstItem="IKl-xU-0Mw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uX9-LL-58V"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="choice1" destination="zXf-vP-JKH" id="q7P-ZZ-cZO"/>
+                        <outlet property="choice2" destination="0Zc-ei-vXE" id="aeW-qc-leL"/>
+                        <outlet property="choice3" destination="V6X-0k-ltX" id="daa-kI-jU7"/>
+                        <outlet property="choice4" destination="j17-Ra-qxe" id="jGz-x3-OXV"/>
+                        <outlet property="progressBar" destination="0o3-7B-QHz" id="grw-Jw-0j8"/>
+                        <outlet property="questionLabel" destination="1Oy-nx-iU0" id="3q7-8W-MWg"/>
+                        <outlet property="scoreLabel" destination="Ufq-gG-9aM" id="XRb-qv-cyH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
