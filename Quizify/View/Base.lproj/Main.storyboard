@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Question View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Quizify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QuestionViewController" customModule="Quizify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,11 +114,77 @@
                         <outlet property="progressBar" destination="0o3-7B-QHz" id="grw-Jw-0j8"/>
                         <outlet property="questionLabel" destination="1Oy-nx-iU0" id="3q7-8W-MWg"/>
                         <outlet property="scoreLabel" destination="Ufq-gG-9aM" id="XRb-qv-cyH"/>
+                        <segue destination="ndD-JK-d52" kind="presentation" identifier="goToResult" id="IuQ-sO-dpC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46.681922196796336" y="-28.35820895522388"/>
+            <point key="canvasLocation" x="-609" y="-216"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="mam-VM-VBd">
+            <objects>
+                <viewController id="ndD-JK-d52" customClass="ResultViewController" customModule="Quizify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VcN-2I-ulw">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="864"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5yC-Mj-9qj">
+                                <rect key="frame" x="77.333333333333329" y="349" width="247.66666666666669" height="166.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEBRİKLER!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFb-5b-rkg">
+                                        <rect key="frame" x="21" y="0.0" width="205.33333333333334" height="44.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5/8" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kny-Tf-8uo" userLabel="Score Label">
+                                        <rect key="frame" x="61.333333333333321" y="44.333333333333307" width="124.66666666666669" height="94.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="79"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BİLGİNİ KONUŞTURDUN!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-tF-6yy" userLabel="Feedback Label">
+                                        <rect key="frame" x="0.0" y="138.66666666666669" width="247.66666666666666" height="27.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2e-mc-Fyh">
+                                <rect key="frame" x="16" y="796" width="370" height="68"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="YENİDEN OYNA" backgroundImage="Rectangle">
+                                    <color key="titleColor" red="0.0" green="0.19215686269999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oz5-Cf-5xy"/>
+                        <color key="backgroundColor" red="0.53333333333333333" green="0.7803921568627451" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5yC-Mj-9qj" firstAttribute="centerX" secondItem="VcN-2I-ulw" secondAttribute="centerX" id="Nr4-Qu-EtT"/>
+                            <constraint firstItem="D2e-mc-Fyh" firstAttribute="leading" secondItem="VcN-2I-ulw" secondAttribute="leadingMargin" id="PvU-Z0-CAV"/>
+                            <constraint firstItem="D2e-mc-Fyh" firstAttribute="trailing" secondItem="VcN-2I-ulw" secondAttribute="trailingMargin" id="YRD-bg-h6U"/>
+                            <constraint firstItem="D2e-mc-Fyh" firstAttribute="bottom" secondItem="oz5-Cf-5xy" secondAttribute="bottom" id="eqE-y6-0Cf"/>
+                            <constraint firstItem="5yC-Mj-9qj" firstAttribute="centerY" secondItem="VcN-2I-ulw" secondAttribute="centerY" id="zDD-xi-eIP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="feedbackLabel" destination="xsm-tF-6yy" id="AJZ-xf-wMN"/>
+                        <outlet property="scoreLabel" destination="kny-Tf-8uo" id="zNl-1E-yKl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="taF-Bi-qtt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.31343283582089" y="-216.24713958810068"/>
         </scene>
     </scenes>
     <resources>
