@@ -10,6 +10,7 @@ import Foundation
 struct QuizBrain {
     var questionIndex = 0
     var score = 0
+    var totalQuestions: Int { questions.count }
     
     let questions = [
         Question(questionText: "Rönesans'ın en önemli sanatçılarından biri kimdir?", choices: ["Rembrandt", "Leonardo da Vinci", "Van Gogh", "Picasso"], correctAnswer: "Leonardo da Vinci"),
@@ -54,5 +55,18 @@ struct QuizBrain {
             questionIndex = 0
             score = 0
         }
+    }
+    
+     func getFeedbackMessage() -> String {
+         let ratio = Float(score) / Float(totalQuestions)
+         
+         switch ratio {
+         case 0.8...1:
+             return "BİLGİNİ KONUŞTURDUN!"
+         case 0.5..<0.8:
+             return "BİRAZ DAHA PRATİKLE ZİRVEYE ÇIKABİLRSİN!"
+         default:
+             return "DENEMEYE DEVAM ET!"
+         }
     }
 }
