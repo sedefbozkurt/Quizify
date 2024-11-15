@@ -26,4 +26,9 @@ class ResultViewController: UIViewController {
         feedbackLabel.text = quizBrain.getFeedbackMessage()
     }
 
+    // 3. Implement restart button functionality in ResultViewController
+    @IBAction func restartButtonPressed(_ sender: UIButton) {
+        quizBrain?.resetGame()
+        dismiss(animated: true, completion: nil)
+    }
 }

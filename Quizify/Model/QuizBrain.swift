@@ -69,4 +69,9 @@ struct QuizBrain {
              return "DENEMEYE DEVAM ET!"
          }
     }
+    
+    mutating func resetGame() {
+        questionIndex = 0
+        score = 0
+    }
 }
