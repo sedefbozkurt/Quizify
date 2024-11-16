@@ -48,12 +48,13 @@ struct QuizBrain {
         return Float(questionIndex + 1) / Float(questions.count)
     }
     
+    var hasMoreQuestions: Bool {
+        return questionIndex + 1 < questions.count
+    }
+    
     mutating func nextQuestion() {
-        if questionIndex + 1 < questions.count {
+        if hasMoreQuestions {
             questionIndex += 1
-        } else {
-            questionIndex = 0
-            score = 0
         }
     }
     

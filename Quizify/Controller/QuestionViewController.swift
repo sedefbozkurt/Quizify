@@ -52,6 +52,20 @@ class QuestionViewController: UIViewController {
             self.quizBrain.nextQuestion()
             self.updateUI()
             sender.backgroundColor = .clear
+            
+            if self.quizBrain.hasMoreQuestions {
+                self.quizBrain.nextQuestion()
+                self.updateUI()
+            } else {
+                self.performSegue(withIdentifier: "goToResult", sender: self)
+            }        }
+    }
+    
+    // 4. Transition to result screen when quiz are finished
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.quizBrain = self.quizBrain
         }
     }
 }
