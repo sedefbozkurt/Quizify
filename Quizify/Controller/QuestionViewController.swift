@@ -26,42 +26,34 @@ class QuestionViewController: UIViewController {
     }
     
     @objc func updateUI() {
-        questionLabel.text = quizBrain.getQuestionText()
+        questionLabel.text = quizBrain.currentQuestion.text
+        scoreLabel.text = "Skor: \(quizBrain.score)"
+        progressBar.progress = quizBrain.getProgress()
+        
         let choices = quizBrain.getChoices()
         choice1.setTitle(choices[0], for: .normal)
         choice2.setTitle(choices[1], for: .normal)
         choice3.setTitle(choices[2], for: .normal)
         choice4.setTitle(choices[3], for: .normal)
-        
-        scoreLabel.text = "Skor: \(quizBrain.score)"
-        
-        progressBar.progress = quizBrain.getProgress()
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle!
+        guard let userAnswer = sender.currentTitle else { return }
         let isCorrect = quizBrain.checkAnswer(userAnswer)
         
-        if isCorrect {
-            sender.backgroundColor = .green
-        } else {
-            sender.backgroundColor = .red
-        }
+        sender.backgroundColor = isCorrect ? .green: .red
         
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
-            self.quizBrain.nextQuestion()
-            self.updateUI()
-            sender.backgroundColor = .clear
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             if self.quizBrain.hasMoreQuestions {
                 self.quizBrain.nextQuestion()
                 self.updateUI()
+                sender.backgroundColor = .clear
             } else {
                 self.performSegue(withIdentifier: "goToResult", sender: self)
-            }        }
+            }
+        }
     }
     
-    // 4. Transition to result screen when quiz are finished
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController

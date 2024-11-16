@@ -8,7 +8,6 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var feedbackLabel: UILabel!
     
@@ -18,7 +17,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         updateResultUI()
     }
-    // 2. Add dynamic score and feedback messages to ResultViewController
+
     func updateResultUI() {
         guard let quizBrain = quizBrain else { return }
         
@@ -26,7 +25,6 @@ class ResultViewController: UIViewController {
         feedbackLabel.text = quizBrain.getFeedbackMessage()
     }
 
-    // 3. Implement restart button functionality in ResultViewController
     @IBAction func restartButtonPressed(_ sender: UIButton) {
         quizBrain?.resetGame()
         dismiss(animated: true, completion: nil)
