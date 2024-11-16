@@ -5,7 +5,7 @@
 //  Created by Sedef Bozkurt on 6.11.2024.
 //
 
-import Foundation
+import UIKit
 
 struct QuizBrain {
     var questionIndex = 0
@@ -46,19 +46,19 @@ struct QuizBrain {
         return questions[questionIndex].text
     }
     
-    func getFeedbackMessage() -> String {
+    func getFeedback() -> (message: String, color: UIColor) {
         let ratio = Float(score) / Float(totalQuestions)
         
         switch ratio {
         case 0.8...1:
-            return "BİLGİNİ KONUŞTURDUN!"
+            return ("BİLGİNİ KONUŞTURDUN!", UIColor(#colorLiteral(red: 0.5333333333, green: 0.7803921569, blue: 0.6, alpha: 1)))
         case 0.5..<0.8:
-            return "BİRAZ DAHA PRATİKLE ZİRVEYE ÇIKABİLRSİN!"
+            return ("BİRAZ DAHA PRATİKLE ZİRVEYE ÇIKABİLRSİN!", UIColor(#colorLiteral(red: 0.4156862745, green: 0.5529411765, blue: 0.8117647059, alpha: 1)))
         default:
-            return "DENEMEYE DEVAM ET!"
+            return ("DENEMEYE DEVAM ET!", UIColor(#colorLiteral(red: 0.831372549, green: 0.4980392157, blue: 0.5333333333, alpha: 1)))
         }
     }
-
+    
     func getProgress() -> Float {
         return Float(questionIndex + 1) / Float(totalQuestions)
     }

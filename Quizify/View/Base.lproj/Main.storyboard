@@ -130,23 +130,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5yC-Mj-9qj">
-                                <rect key="frame" x="77.333333333333329" y="349" width="247.66666666666669" height="166.33333333333337"/>
+                                <rect key="frame" x="98.333333333333329" y="352.66666666666669" width="205.33333333333337" height="159"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEBRİKLER!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFb-5b-rkg">
-                                        <rect key="frame" x="21" y="0.0" width="205.33333333333334" height="44.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="205.33333333333334" height="44.333333333333336"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/8" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kny-Tf-8uo" userLabel="Score Label">
-                                        <rect key="frame" x="63.333333333333321" y="44.333333333333307" width="120.66666666666669" height="94.333333333333314"/>
+                                        <rect key="frame" x="42.333333333333321" y="44.333333333333307" width="120.66666666666669" height="94.333333333333314"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="79"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BİLGİNİ KONUŞTURDUN!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-tF-6yy" userLabel="Feedback Label">
-                                        <rect key="frame" x="0.0" y="138.66666666666669" width="247.66666666666666" height="27.666666666666657"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BİLGİNİ KONUŞTURDUN!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsm-tF-6yy" userLabel="Feedback Label">
+                                        <rect key="frame" x="6.6666666666666714" y="138.66666666666663" width="192.33333333333331" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>

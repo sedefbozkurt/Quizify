@@ -21,8 +21,10 @@ class ResultViewController: UIViewController {
     func updateResultUI() {
         guard let quizBrain = quizBrain else { return }
         
+        let feedback = quizBrain.getFeedback()
         scoreLabel.text = "\(quizBrain.score)/\(quizBrain.totalQuestions)"
-        feedbackLabel.text = quizBrain.getFeedbackMessage()
+        feedbackLabel.text = feedback.message
+        view.backgroundColor = feedback.color
     }
 
     @IBAction func restartButtonPressed(_ sender: UIButton) {
