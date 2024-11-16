@@ -25,6 +25,10 @@ class QuestionViewController: UIViewController {
         updateUI()
     }
     
+    func resetButtonColors() {
+        [choice1, choice2, choice3, choice4].forEach { $0?.backgroundColor = .clear }
+    }
+    
     @objc func updateUI() {
         questionLabel.text = quizBrain.currentQuestion.text
         scoreLabel.text = "Skor: \(quizBrain.score)"
@@ -35,6 +39,8 @@ class QuestionViewController: UIViewController {
         choice2.setTitle(choices[1], for: .normal)
         choice3.setTitle(choices[2], for: .normal)
         choice4.setTitle(choices[3], for: .normal)
+        
+        resetButtonColors()
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
@@ -47,7 +53,6 @@ class QuestionViewController: UIViewController {
             if self.quizBrain.hasMoreQuestions {
                 self.quizBrain.nextQuestion()
                 self.updateUI()
-                sender.backgroundColor = .clear
             } else {
                 self.performSegue(withIdentifier: "goToResult", sender: self)
             }
@@ -57,8 +62,16 @@ class QuestionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.quizBrain = self.quizBrain
+            destinationVC.quizBrain = quizBrain
+            destinationVC.delegate = self
         }
     }
 }
 
+// MARK: - ResultViewControllerDelegate
+extension QuestionViewController: ResultViewControllerDelegate {
+    func didRestartQuiz() {
+        quizBrain.resetGame()
+        updateUI()
+    }
+}
