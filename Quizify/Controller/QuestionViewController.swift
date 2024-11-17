@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class QuestionViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
@@ -47,6 +48,8 @@ class QuestionViewController: UIViewController {
         guard let userAnswer = sender.currentTitle else { return }
         let isCorrect = quizBrain.checkAnswer(userAnswer)
         
+        playSound(forAnswer: isCorrect)
+        
         sender.backgroundColor = isCorrect ? .green: .red
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -73,5 +76,22 @@ extension QuestionViewController: ResultViewControllerDelegate {
     func didRestartQuiz() {
         quizBrain.resetGame()
         updateUI()
+    }
+}
+
+// MARK: - Sounds
+var audioPlayer: AVAudioPlayer?
+
+func playSound(forAnswer isCorrect: Bool) {
+    let soundName = isCorrect ? "correct" : "wrong"
+    if let url = Bundle.main.url(forResource: soundName, withExtension: "wav") {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Couldn't play sound: \(error)")
+        }
+    } else {
+        print("Sound file not found!")
     }
 }
